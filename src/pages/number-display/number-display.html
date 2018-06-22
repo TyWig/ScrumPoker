@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Bid</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background-color: chocolate">
+  <ion-grid style="height: 100%" (click)="showNumber()">
+    <ion-row justify-content-center align-items-center>
+      <ion-col col-12 text-center *ngIf="!show">
+        <h1 style="color: rgba(255,255,255, 0.5)">Click or Shake to display number</h1>
+      </ion-col>
+      <ion-col col-12 text-center *ngIf="show">
+        <h1 style="font-size: 35em">{{myNumber}}</h1>
+      </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>
