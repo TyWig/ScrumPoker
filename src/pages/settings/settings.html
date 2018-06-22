@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -9,5 +9,34 @@
 
 
 <ion-content padding>
-
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <ion-card>
+          <ion-card-header>
+            <h1>Choose Theme</h1>
+            <hr>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Default</ion-label>
+              <ion-toggle [checked]="savedTheme === 'primary'" (ionChange)="onThemeChange($event)" value="primary"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Dark</ion-label>
+              <ion-toggle [checked]="savedTheme === 'dark'" (ionChange)="onThemeChange($event)" value="dark"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Light</ion-label>
+              <ion-toggle [checked]="savedTheme === 'light'" (ionChange)="onThemeChange($event)" value="light"></ion-toggle>
+            </ion-item>
+            <ion-item>
+              <ion-label>Party</ion-label>
+              <ion-toggle [checked]="savedTheme === 'party'" (ionChange)="onThemeChange($event)" value="party"></ion-toggle>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

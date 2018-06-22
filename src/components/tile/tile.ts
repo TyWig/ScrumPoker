@@ -9,6 +9,7 @@ import { NumberDisplayPage } from '../../pages/number-display/number-display';
 })
 export class TileComponent {
   @Input() number: Number
+  @Input() color: String;
 
   constructor(
     private pokerService: PokerServiceProvider,

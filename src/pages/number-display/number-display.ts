@@ -31,7 +31,7 @@ export class NumberDisplayPage {
 
   showNumber() {
     if(this.show) {
-      this.navCtrl.push(HomePage);
+      this.navCtrl.pop();
     }
     this.show = true;
   }
