@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar color="primary">
+<ion-header color="primary">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,10 +8,10 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
-    <ion-row>
-      <ion-col col-4 *ngFor="let num of numbers" style="height: 200px;">
-          <tile [number]="num" [color]="themeColor"></tile>
+  <ion-grid no-padding no-margin class="full-height">
+    <ion-row class="full-height">
+      <ion-col col-4 *ngFor="let value of scale" style="height: 33.3%; border: 1px solid white;">
+          <tile [number]="value" [color]="themeColor"></tile>
       </ion-col>
     </ion-row>
   </ion-grid>

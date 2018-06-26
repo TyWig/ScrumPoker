@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ThemeServiceProvider } from '../../providers/theme-service/theme-service';
+import { AppSettingsServiceProvider } from '../../providers/app-settings-service/app-settings-service';
 import { Store } from '@ngrx/store';
 import { AppState, selectorSettings } from '../../store/reducer';
-import { Observable } from 'rxjs/Observable';
 
 /**
  * Generated class for the SettingsPage page.
@@ -18,13 +17,26 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'settings.html',
 })
 export class SettingsPage implements OnInit {
-  savedTheme: string;
-  private state: Observable<AppState>;
+  selectedTheme: string;
+  selectedScale: string;
+
+  protected themes = [
+    {theme: 'Primary', value: 'primary'},
+    {theme: 'Dark', value: 'dark'},
+    {theme: 'Light', value: 'light'},
+    {theme: 'Party', value: 'party'}
+  ];
+
+  protected scales = [
+    {scale: 'Fibonacci', value: 'fibonacci'},
+    {scale: 'T-Shirt Sizes', value: 'tshirt'},
+    {scale: 'Sequential', value: 'sequential'}
+  ]
 
   constructor(
     private navCtrl: NavController,
     private navParams: NavParams,
-    private themeService: ThemeServiceProvider,
+    private settingsService: AppSettingsServiceProvider,
     private store: Store<AppState>
   ) {
 
@@ -33,16 +45,19 @@ export class SettingsPage implements OnInit {
 
   ngOnInit() {
     this.store.select(selectorSettings).subscribe(next => {
-      this.savedTheme = next.theme;
+      this.selectedTheme = next.theme;
+      this.selectedScale = next.scale;
     });
   }
 
-  ionViewDidLoad() {
-  
+  ionViewDidLoad() { }
+
+  onThemeChange(theme: any) {
+    this.settingsService.setTheme(theme);
   }
 
-  onThemeChange(event: any) {
-    console.log(event);
+  onNumberScaleChange(scale: any) {
+    this.settingsService.setNumberScale(scale);
   }
 
 }

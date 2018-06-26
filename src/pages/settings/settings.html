@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar color="primary">
+<ion-header color="primary">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -11,28 +11,24 @@
 <ion-content padding>
   <ion-grid>
     <ion-row>
-      <ion-col col-12>
+      <ion-col>
         <ion-card>
           <ion-card-header>
-            <h1>Choose Theme</h1>
-            <hr>
+            <h1 style="color: white">App Settings</h1>
+            <hr style="background-color: gainsboro">
           </ion-card-header>
           <ion-card-content>
             <ion-item>
-              <ion-label>Default</ion-label>
-              <ion-toggle [checked]="savedTheme === 'primary'" (ionChange)="onThemeChange($event)" value="primary"></ion-toggle>
+                <ion-label>Theme:</ion-label>
+                <ion-select (ionChange)="onThemeChange($event)" [(ngModel)]="selectedTheme">
+                  <ion-option *ngFor="let theme of themes" [value]="theme.value">{{theme.theme}}</ion-option>
+                </ion-select>
             </ion-item>
             <ion-item>
-              <ion-label>Dark</ion-label>
-              <ion-toggle [checked]="savedTheme === 'dark'" (ionChange)="onThemeChange($event)" value="dark"></ion-toggle>
-            </ion-item>
-            <ion-item>
-              <ion-label>Light</ion-label>
-              <ion-toggle [checked]="savedTheme === 'light'" (ionChange)="onThemeChange($event)" value="light"></ion-toggle>
-            </ion-item>
-            <ion-item>
-              <ion-label>Party</ion-label>
-              <ion-toggle [checked]="savedTheme === 'party'" (ionChange)="onThemeChange($event)" value="party"></ion-toggle>
+              <ion-label>Number Scale</ion-label>
+              <ion-select (ionChange)="onNumberScaleChange($event)" [(ngModel)]="selectedScale">
+                  <ion-option *ngFor="let scale of scales" [value]="scale.value">{{scale.scale}}</ion-option>
+                </ion-select>
             </ion-item>
           </ion-card-content>
         </ion-card>
