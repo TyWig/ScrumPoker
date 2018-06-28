@@ -7,9 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { Store } from '@ngrx/store';
 import { AppState, selectorSettings } from '../store/reducer';
-import { Subject } from 'rxjs/Subject';
 import { LocalStorageServiceProvider } from '../providers/local-storage-service/local-storage-service';
-import { UpdateTheme } from '../store/actions';
 import { AppSettingsServiceProvider } from '../providers/app-settings-service/app-settings-service';
 
 @Component({
@@ -62,7 +60,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      this.splashScreen.show();
     });
   }
 

@@ -1,5 +1,4 @@
 import { Action } from "@ngrx/store";
-import { AppState } from "./reducer";
 
 export const UPDATE_THEME = "UPDATE_THEME";
 export const UPDATE_SCALE = "UPDATE_SCALE";

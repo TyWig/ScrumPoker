@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PokerServiceProvider } from '../../providers/poker-service/poker-service';
-import { HomePage } from '../home/home';
-
-/**
- * Generated class for the NumberDisplayPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
